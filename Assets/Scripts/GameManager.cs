@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public enum Days
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
 {
     private Days today;
     private Item refItem;
+
+	private byte day, hour, minute, sec;
+	
 
     public Text daysToShow, userName;
 
@@ -43,6 +47,14 @@ public class GameManager : MonoBehaviour
             daysToShow.text = today.ToString();
             ControllerDays();
         }
+
+		/*if (System.time.day != day) 
+		{
+			today += 1;
+			daysToShow.text = today.ToString();
+            ControllerDays();
+		}*/
+
         else
         {
             today = Days.Monday;
@@ -55,6 +67,11 @@ public class GameManager : MonoBehaviour
 
             ControllerDays();
         }
+
+		
+
+
+
     }
 
     // Control that in each day you can interact to the right question mark

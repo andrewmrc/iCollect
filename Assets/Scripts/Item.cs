@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     /// <summary>
     /// Facendo il GetComponentInChildren su questo oggetto non mi trova il componente Image figlio... Bug???
+	/// usa GetChild
     /// </summary>
     private Image questionIcon;
     private Image pokeIcon;
@@ -19,6 +20,9 @@ public class Item : MonoBehaviour
         pokeIcon = imageArray[1];
 
         pokeIcon.transform.localScale = Vector3.zero;
+
+
+		questionIcon.sprite = Resources.Load<Sprite>("Pokemon/Squirtle");
     }
 
     // On the tap ReduceCO question mark and SpawnCO item
