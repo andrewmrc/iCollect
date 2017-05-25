@@ -6,12 +6,14 @@ public class Item : MonoBehaviour
 {
     private Image questionIcon;
     private Image rewardIcon;
+    GameManager gameElements;
    
     private void Awake()
     {
         questionIcon = this.GetComponent<Image>();
         rewardIcon = this.gameObject.transform.GetChild(0).GetComponent<Image>();
         rewardIcon.transform.localScale = Vector3.zero;
+        gameElements = FindObjectOfType<GameManager>();
     }
 
     // On the tap ReduceCO question mark and SpawnCO item
@@ -23,6 +25,9 @@ public class Item : MonoBehaviour
 
         questionIcon.enabled = false;
         rewardIcon.enabled = true;
+
+        gameElements.CheckMyStatus(this.gameObject.name);
+
     }
 
     // Method that reset the icon
